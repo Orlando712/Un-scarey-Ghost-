@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--
+  SPDX-FileCopyrightText: Copyright (C) 2026 Boo, Please! Project
+  SPDX-License-Identifier: MPL-2.0
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boo, Please! — 2D Phaser Playable Encounter Prototype</title>
+  <link rel="stylesheet" href="/static/prototype/style.css">
+  <!-- Pinned local Phaser v3.87.0 runtime dependency (NO CDN) -->
+  <script src="/static/vendor/phaser.min.js"></script>
+</head>
+<body>
+  <div class="prototype-shell">
+
+    <!-- Clean Carnival Atmosphere Header (FIX 4) -->
+    <header class="proto-header">
+      <h1 class="proto-title">Boo, Please!</h1>
+      <p class="proto-subtitle">Coach an unsuccessful ghost to haunt the abandoned carnival</p>
+    </header>
+
+    <!-- Recoverable Error Banner -->
+    <div id="errorBanner" class="error-banner hidden" role="alert">
+      <span id="errorBannerText">Connection error</span>
+      <button id="retryErrorBtn" class="btn btn-sm btn-secondary">🔄 Try Again</button>
+    </div>
+
+    <!-- Phaser 2D Game Stage Viewport -->
+    <main class="phaser-stage-viewport" aria-label="Playable 2D Carnival Stage">
+      <div id="phaserContainer" role="region" aria-label="Phaser Canvas Game World"></div>
+    </main>
+
+    <!-- Contextual Control Dock Below Stage -->
+    <section class="proto-control-dock" id="controlDock" aria-label="Game Controls">
+
+      <!-- STEP 1: Arrival Screen -->
+      <div id="panelArrival" class="step-panel">
+        <p class="panel-narrative">The moonlit carnival courtyard is quiet... Can our adorable ghost surprise a clockwork visitor?</p>
+        <div class="buttons-row">
+          <button id="enterCarnivalBtn" class="btn btn-primary" aria-label="Enter the carnival courtyard">
+            🎟 Enter the carnival
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Coaching Input Form (Accessible DOM Controls) -->
+      <div id="panelCoaching" class="step-panel hidden">
+        <div class="panel-narrative">
+          <label for="coachInput" class="prompt-label">How should our ghost make its approach?</label>
+          <p class="coaching-limits-note">Our little phantom knows 5 physical actions: <strong>hide</strong>, <strong>pause</strong>, <strong>emerge</strong>, <strong>whisper boo</strong>, and <strong>spooky boo</strong> (combine up to 2, normal or slow pace).</p>
+        </div>
+        <form id="coachForm" class="coach-form">
+          <div class="input-row">
+            <input 
+              type="text" 
+              id="coachInput" 
+              class="proto-input" 
+              placeholder="e.g. Hide behind the ticket booth, then spooky boo" 
+              autocomplete="off" 
+              maxlength="150" 
+              aria-label="Coaching instruction for the ghost"
+            />
+            <button type="submit" id="coachBtn" class="btn btn-primary">Plan Approach</button>
+          </div>
+        </form>
+        <div class="chips-row" aria-label="Suggested Coaching Plans">
+          <button type="button" class="coach-chip" data-text="Hide behind the ticket booth, then spooky boo">“Hide behind the booth, then spooky boo”</button>
+          <button type="button" class="coach-chip" data-text="Pause for suspense, then whisper boo">“Pause for suspense, then whisper boo”</button>
+          <button type="button" class="coach-chip" data-text="Hide behind the booth, then emerge">“Hide behind the booth, then emerge”</button>
+        </div>
+        <div id="coachThinking" class="thinking-text hidden" aria-live="polite">
+          <span>⏳ Ghost is interpreting your instruction on UNO Q Qwen 2.5...</span>
+        </div>
+      </div>
+
+      <!-- STEP 3: Sound Demonstration (Optional Mic Input) -->
+      <div id="panelRecording" class="step-panel hidden">
+        <p class="panel-narrative">Our ghost needs to hear your sound demonstration!</p>
+        <div class="buttons-row">
+          <button id="recordBtn" class="btn btn-primary" aria-label="Record sound demonstration">
+            🎤 <span id="recordBtnText">Record Sound (2.5s)</span>
+          </button>
+          <button id="defaultSoundBtn" class="btn btn-secondary" aria-label="Use built-in sound without mic">
+            👻 Use Ghost Squeak
+          </button>
+        </div>
+        <div id="recordingMeter" class="meter-container hidden" aria-live="assertive">
+          <div id="meterFill" class="meter-fill"></div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Core Timing Player Decision (BOO! Trigger) -->
+      <div id="panelTimingTrigger" class="step-panel hidden">
+        <p id="timingStatusText" class="timing-status-text">Barnaby is walking past! Press 'BOO!' when he is at the booth!</p>
+        <button id="booTriggerBtn" class="btn btn-boo-trigger" aria-label="Trigger ghost scare reveal">
+          👻 BOO! (or Spacebar)
+        </button>
+        <p class="timing-hint-text">Timing zone: Near the ticket booth counter startles Barnaby! Early or late will fail!</p>
+      </div>
+
+      <!-- STEP 5: Outcome & Replay Screen (FIX 4: Player-Facing Presentation) -->
+      <div id="panelOutcome" class="step-panel hidden">
+        <div class="outcome-story-card">
+          <h3 id="outcomeStoryHeading" class="outcome-story-heading">Splendid Scare!</h3>
+          <p id="outcomeStoryText" class="outcome-story-text">Barnaby leaped into the air and dropped a golden carnival ticket!</p>
+        </div>
+        <div class="buttons-row">
+          <button id="tryAgainBtn" class="btn btn-primary" aria-label="Try timing again with same plan">
+            🔄 Try Timing Again
+          </button>
+          <button id="changeCoachingBtn" class="btn btn-secondary" aria-label="Change coaching instructions">
+            ✏ Change Coaching
+          </button>
+          <button id="restartBtn" class="btn btn-tertiary" aria-label="Restart encounter">
+            🔄 Restart Encounter
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Footer with Diagnostics Toggle -->
+    <footer class="proto-footer">
+      <div>
+        <span>DEV Hacktoberfest 2026: <em>Ghost in the Machine</em></span>
+        <span>•</span>
+        <span>Phaser 3.87.0 + Arduino UNO Q (Linux aarch64 + LiteRT YAMNet &amp; Qwen 2.5)</span>
+      </div>
+      <button id="toggleDiagBtn" class="btn-diag-toggle" aria-expanded="false" aria-controls="diagnosticsDrawer">
+        ⚙ Diagnostics
+      </button>
+    </footer>
+
+    <!-- Developer Diagnostics Drawer (Initially Collapsed) -->
+    <aside id="diagnosticsDrawer" class="diagnostics-drawer hidden" aria-label="Model & Timing Diagnostics">
+      <div class="diag-header">
+        <h3>Model &amp; Timing Diagnostics</h3>
+        <button id="closeDiagBtn" class="btn-close" aria-label="Close diagnostics">&times;</button>
+      </div>
+      <div class="diag-body">
+        <div class="diag-badges-row">
+          <span id="outcomeResultBadge" class="badge badge-shock">SHOCK</span>
+          <span id="timingResultBadge" class="badge badge-dev">TIMING: WELL TIMED</span>
+          <span id="modeBadge" class="badge badge-ai">🤖 Live UNO Q Model Mode</span>
+        </div>
+        <table class="diag-table">
+          <tr><th>UNO Q Model Status:</th><td id="diagModelStatus">Checking...</td></tr>
+          <tr><th>Model-Derived Plan:</th><td id="diagModelPlan">—</td></tr>
+          <tr><th>Rule-Corrected Plan:</th><td id="diagRulePlan">—</td></tr>
+          <tr><th>Active Plan:</th><td id="diagPlanActions">—</td></tr>
+          <tr><th>Timing Evaluation:</th><td id="diagTimingEval">—</td></tr>
+          <tr><th>Rule Explanation:</th><td id="outcomeRuleText">—</td></tr>
+          <tr><th>Encounter Zones:</th><td>Early &gt; 255px, Booth 80–255px, Late &lt; 75px</td></tr>
+        </table>
+        <div class="diag-dev-controls">
+          <button id="toggleDevModeBtn" class="btn btn-sm btn-secondary" aria-label="Toggle between Dev Mode and Live AI Mode">
+            Switch to Dev Mode (Fixed Plan)
+          </button>
+          <button id="quickDevPlayBtn" class="btn btn-sm btn-tertiary" aria-label="Play fixed plan immediately (Dev Mode)">
+            ⚡ Rehearse Fixed Dev Plan (Hide → Boo)
+          </button>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Main ES Module Script -->
+  <script type="module" src="/static/prototype/app.js"></script>
+</body>
+</html>

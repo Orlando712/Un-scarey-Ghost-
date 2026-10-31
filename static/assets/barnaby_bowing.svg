@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 150" width="130" height="150">
+  <defs>
+    <linearGradient id="tinGradBow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a67c52" />
+      <stop offset="40%" stop-color="#805933" />
+      <stop offset="100%" stop-color="#4a3018" />
+    </linearGradient>
+    <linearGradient id="brassGradBow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe270" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#8c701e" />
+    </linearGradient>
+  </defs>
+
+  <!-- Winding Key on Back -->
+  <g transform="translate(10, 0)">
+    <path d="M 88 80 L 105 80" stroke="#d4af37" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="107" cy="74" r="7" fill="none" stroke="#d4af37" stroke-width="2.6" />
+    <circle cx="107" cy="86" r="7" fill="none" stroke="#d4af37" stroke-width="2.6" />
+  </g>
+
+  <!-- Feet (Bowing Stance) -->
+  <ellipse cx="46" cy="140" rx="12" ry="6.5" fill="url(#brassGradBow)" stroke="#2b1a0b" stroke-width="1.8" />
+  <ellipse cx="74" cy="140" rx="12" ry="6.5" fill="url(#brassGradBow)" stroke="#2b1a0b" stroke-width="1.8" />
+
+  <!-- Tilted Body (Bowing Forward) -->
+  <g transform="rotate(-8 60 140)">
+    <!-- Body -->
+    <rect x="35" y="65" width="50" height="65" rx="15" fill="url(#tinGradBow)" stroke="#2b1a0b" stroke-width="2.2" />
+    <rect x="45" y="78" width="30" height="36" rx="8" fill="url(#brassGradBow)" opacity="0.92" stroke="#5a4212" stroke-width="1.4" />
+
+    <!-- Head -->
+    <circle cx="60" cy="45" r="26" fill="url(#tinGradBow)" stroke="#2b1a0b" stroke-width="2.2" />
+    <!-- Ears -->
+    <circle cx="40" cy="24" r="10" fill="url(#tinGradBow)" stroke="#2b1a0b" stroke-width="1.8" />
+    <circle cx="40" cy="24" r="5" fill="url(#brassGradBow)" />
+    <circle cx="80" cy="24" r="10" fill="url(#tinGradBow)" stroke="#2b1a0b" stroke-width="1.8" />
+    <circle cx="80" cy="24" r="5" fill="url(#brassGradBow)" />
+
+    <!-- Respectful Closed Eyes -->
+    <path d="M 48 42 L 56 42" stroke="#150d06" stroke-width="2.4" stroke-linecap="round" />
+    <path d="M 64 42 L 72 42" stroke="#150d06" stroke-width="2.4" stroke-linecap="round" />
+
+    <ellipse cx="60" cy="50" rx="10" ry="7" fill="#d9b68b" stroke="#331e0c" stroke-width="1.3" />
+    <path d="M 57 52 Q 60 54 63 52" fill="none" stroke="#2b1a0b" stroke-width="1.6" stroke-linecap="round" />
+
+    <!-- Hand on Heart / Polite Bow Arms -->
+    <path d="M 34 76 Q 48 88 56 82" fill="none" stroke="url(#tinGradBow)" stroke-width="6.5" stroke-linecap="round" />
+    <path d="M 86 78 Q 94 96 88 108" fill="none" stroke="url(#tinGradBow)" stroke-width="6.5" stroke-linecap="round" />
+  </g>
+</svg>

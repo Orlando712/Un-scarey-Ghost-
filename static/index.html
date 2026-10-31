@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<!--
+  SPDX-FileCopyrightText: Copyright (C) 2026 Boo, Please! Project
+  SPDX-License-Identifier: MPL-2.0
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boo, Please! — Abandoned Carnival Courtyard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Abandoned Carnival Courtyard Experience -->
+  <div class="carnival-app-shell">
+    <!-- Atmospheric Carnival Marquee Header -->
+    <header class="booth-header">
+      <div class="light-bulbs-row" aria-hidden="true">
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+      </div>
+      <h1 class="theatrical-title">Boo, Please!</h1>
+      <p class="booth-subtitle">An Abandoned Carnival Courtyard Encounter</p>
+    </header>
+
+    <!-- Shared Landscape Scene (Fills most of desktop viewport) -->
+    <main class="courtyard-scene" id="courtyardScene" aria-label="Abandoned Carnival Courtyard">
+      <!-- Distant Moonlit Sky, Ferris Wheel Silhouette & Faded Bunting Backdrop -->
+      <svg class="scene-backdrop" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <!-- Deep Night Carnival Sky Gradient -->
+          <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#080410" />
+            <stop offset="55%" stop-color="#140c24" />
+            <stop offset="85%" stop-color="#1c1635" />
+            <stop offset="100%" stop-color="#261a38" />
+          </linearGradient>
+
+          <!-- Pale Moon Radial Glow -->
+          <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fffced" stop-opacity="0.95" />
+            <stop offset="40%" stop-color="#faecc0" stop-opacity="0.75" />
+            <stop offset="70%" stop-color="#e3cb88" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#e3cb88" stop-opacity="0" />
+          </radialGradient>
+
+          <!-- Boardwalk Walkway Texture Gradient -->
+          <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2a1e36" />
+            <stop offset="30%" stop-color="#21152a" />
+            <stop offset="100%" stop-color="#140b1a" />
+          </linearGradient>
+        </defs>
+
+        <!-- Sky Backdrop -->
+        <rect width="1000" height="500" fill="url(#skyGrad)" />
+
+        <!-- Distant Pale Glowing Moon -->
+        <circle cx="820" cy="95" r="75" fill="url(#moonGlow)" />
+        <circle cx="820" cy="95" r="32" fill="#fffef0" />
+
+        <!-- Distant Faint Stars -->
+        <g fill="#e6dcf5" opacity="0.45">
+          <circle cx="120" cy="45" r="1.5" /><circle cx="280" cy="70" r="1.2" />
+          <circle cx="430" cy="35" r="1.5" /><circle cx="560" cy="85" r="1.2" />
+          <circle cx="670" cy="40" r="1.8" /><circle cx="940" cy="60" r="1.5" />
+          <circle cx="210" cy="110" r="1.0" /><circle cx="360" cy="95" r="1.0" />
+        </g>
+
+        <!-- Distant Carnival Silhouettes (Big Top Tents & Coaster Track) -->
+        <path d="M 0 380 L 0 320 Q 90 280 180 325 Q 260 270 340 330 L 390 310 L 460 340 L 580 315 L 680 345 L 780 305 Q 890 280 1000 330 L 1000 380 Z" fill="#120a1f" opacity="0.6" />
+
+        <!-- Moonlit Ferris Wheel Silhouette (Center-Right Distant) -->
+        <g opacity="0.35" transform="translate(680, 110)">
+          <!-- Outer Wheel Rings -->
+          <circle cx="100" cy="110" r="95" fill="none" stroke="#684a8c" stroke-width="2.5" />
+          <circle cx="100" cy="110" r="82" fill="none" stroke="#684a8c" stroke-width="1.5" stroke-dasharray="4,4" />
+          <circle cx="100" cy="110" r="22" fill="none" stroke="#684a8c" stroke-width="2" />
+          <circle cx="100" cy="110" r="6" fill="#8c6ab8" />
+
+          <!-- Wheel Spokes -->
+          <line x1="100" y1="15" x2="100" y2="205" stroke="#684a8c" stroke-width="1.8" />
+          <line x1="5" y1="110" x2="195" y2="110" stroke="#684a8c" stroke-width="1.8" />
+          <line x1="33" y1="43" x2="167" y2="177" stroke="#684a8c" stroke-width="1.8" />
+          <line x1="33" y1="177" x2="167" y2="43" stroke="#684a8c" stroke-width="1.8" />
+
+          <!-- Passenger Gondolas -->
+          <rect x="94" y="8" width="12" height="14" rx="2" fill="#8c6ab8" />
+          <rect x="94" y="198" width="12" height="14" rx="2" fill="#8c6ab8" />
+          <rect x="0" y="103" width="12" height="14" rx="2" fill="#8c6ab8" />
+          <rect x="188" y="103" width="12" height="14" rx="2" fill="#8c6ab8" />
+          <rect x="27" y="36" width="12" height="14" rx="2" fill="#8c6ab8" />
+          <rect x="161" y="170" width="12" height="14" rx="2" fill="#8c6ab8" />
+          <rect x="27" y="170" width="12" height="14" rx="2" fill="#8c6ab8" />
+          <rect x="161" y="36" width="12" height="14" rx="2" fill="#8c6ab8" />
+
+          <!-- Support Tower Legs -->
+          <line x1="100" y1="110" x2="45" y2="260" stroke="#4a3068" stroke-width="3" />
+          <line x1="100" y1="110" x2="155" y2="260" stroke="#4a3068" stroke-width="3" />
+          <line x1="68" y1="195" x2="132" y2="195" stroke="#4a3068" stroke-width="2" />
+        </g>
+
+        <!-- Overhead Faded Carnival Bunting Strings -->
+        <g class="faded-bunting">
+          <!-- String Swags -->
+          <path d="M 0 35 Q 250 85 500 40 Q 750 90 1000 35" fill="none" stroke="#3d2954" stroke-width="1.5" />
+          
+          <!-- Triangular Pennants (Faded Plum, Amber & Teal) -->
+          <polygon points="50,45 68,48 59,85" fill="#6b3456" opacity="0.75" />
+          <polygon points="90,53 108,57 99,92" fill="#b08b3c" opacity="0.75" />
+          <polygon points="135,62 153,66 144,98" fill="#2d6e75" opacity="0.75" />
+          <polygon points="180,69 198,72 189,103" fill="#6b3456" opacity="0.75" />
+          <polygon points="230,73 248,74 239,105" fill="#b08b3c" opacity="0.75" />
+          <polygon points="280,72 298,70 289,102" fill="#2d6e75" opacity="0.75" />
+          <polygon points="330,67 348,64 339,96" fill="#6b3456" opacity="0.75" />
+          <polygon points="380,59 398,56 389,89" fill="#b08b3c" opacity="0.75" />
+          <polygon points="430,51 448,48 439,82" fill="#2d6e75" opacity="0.75" />
+
+          <polygon points="550,47 568,51 559,88" fill="#6b3456" opacity="0.75" />
+          <polygon points="600,56 618,61 609,96" fill="#b08b3c" opacity="0.75" />
+          <polygon points="655,66 673,70 664,103" fill="#2d6e75" opacity="0.75" />
+          <polygon points="710,72 728,74 719,106" fill="#6b3456" opacity="0.75" />
+          <polygon points="765,74 783,73 774,105" fill="#b08b3c" opacity="0.75" />
+          <polygon points="820,70 838,67 829,100" fill="#2d6e75" opacity="0.75" />
+          <polygon points="875,63 893,59 884,92" fill="#6b3456" opacity="0.75" />
+          <polygon points="930,53 948,48 939,83" fill="#b08b3c" opacity="0.75" />
+        </g>
+
+        <!-- Foreground Boardwalk / Courtyard Walkway -->
+        <rect x="0" y="380" width="1000" height="120" fill="url(#groundGrad)" />
+        <line x1="0" y1="380" x2="1000" y2="380" stroke="#443257" stroke-width="2.5" />
+        <!-- Boardwalk plank lines -->
+        <g stroke="#1a0f24" stroke-width="1.5" opacity="0.6">
+          <line x1="120" y1="380" x2="120" y2="500" /><line x1="260" y1="380" x2="260" y2="500" />
+          <line x1="400" y1="380" x2="400" y2="500" /><line x1="540" y1="380" x2="540" y2="500" />
+          <line x1="680" y1="380" x2="680" y2="500" /><line x1="820" y1="380" x2="820" y2="500" />
+        </g>
+      </svg>
+
+      <!-- Ambient Drifting Mist Layer -->
+      <div class="ambient-mist-container" aria-hidden="true">
+        <div class="mist-drift-cloud mist-layer-1"></div>
+        <div class="mist-drift-cloud mist-layer-2"></div>
+      </div>
+
+      <!-- LEFT PROP: Weathered Carnival Ticket Booth -->
+      <div class="courtyard-ticket-booth" id="ticketBooth" aria-label="Weathered Carnival Ticket Booth">
+        <!-- Swinging Brass-Framed "TICKETS" Sign -->
+        <div class="booth-sign-wrapper" aria-hidden="true">
+          <svg viewBox="0 0 140 45" class="booth-sign swinging-sign">
+            <defs>
+              <linearGradient id="signWoodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#4a2218" />
+                <stop offset="100%" stop-color="#2c120c" />
+              </linearGradient>
+              <linearGradient id="signBrassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffe680" />
+                <stop offset="50%" stop-color="#d4af37" />
+                <stop offset="100%" stop-color="#8a6d1c" />
+              </linearGradient>
+            </defs>
+            <!-- Hanging Chains -->
+            <line x1="28" y1="0" x2="28" y2="12" stroke="#d4af37" stroke-width="2" />
+            <line x1="112" y1="0" x2="112" y2="12" stroke="#d4af37" stroke-width="2" />
+            <!-- Signboard Frame -->
+            <rect x="8" y="10" width="124" height="32" rx="4" fill="url(#signWoodGrad)" stroke="url(#signBrassGrad)" stroke-width="2" />
+            <!-- Inner Gold Border -->
+            <rect x="12" y="14" width="116" height="24" rx="2" fill="none" stroke="#d4af37" stroke-width="1" stroke-opacity="0.6" />
+            <!-- Text: TICKETS -->
+            <text x="70" y="31" fill="#ffeaa3" font-family="'Cinzel', Georgia, serif" font-size="14" font-weight="bold" letter-spacing="3" text-anchor="middle">TICKETS</text>
+          </svg>
+        </div>
+
+        <!-- Ticket Booth Canopy & Window Structure -->
+        <svg viewBox="0 0 240 320" class="booth-structure-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="boothWood" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#2a121c" />
+              <stop offset="50%" stop-color="#3d1b28" />
+              <stop offset="100%" stop-color="#240e16" />
+            </linearGradient>
+            <linearGradient id="awningPlum" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#7a2a46" />
+              <stop offset="100%" stop-color="#4a1525" />
+            </linearGradient>
+            <linearGradient id="awningCream" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#fdf3dc" />
+              <stop offset="100%" stop-color="#d6be96" />
+            </linearGradient>
+            <linearGradient id="counterBrass" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8a6d1c" />
+              <stop offset="50%" stop-color="#ffd966" />
+              <stop offset="100%" stop-color="#8a6d1c" />
+            </linearGradient>
+          </defs>
+
+          <!-- Weathered Awning Roof (Scalloped Stripes) -->
+          <polygon points="15,45 225,45 235,80 5,80" fill="#240e16" />
+          <polygon points="15,45 50,45 42,80 5,80" fill="url(#awningPlum)" />
+          <polygon points="50,45 85,45 80,80 42,80" fill="url(#awningCream)" />
+          <polygon points="85,45 120,45 118,80 80,80" fill="url(#awningPlum)" />
+          <polygon points="120,45 155,45 156,80 118,80" fill="url(#awningCream)" />
+          <polygon points="155,45 190,45 194,80 156,80" fill="url(#awningPlum)" />
+          <polygon points="190,45 225,45 235,80 194,80" fill="url(#awningCream)" />
+          <!-- Awning scalloped valance fringe -->
+          <path d="M 5 80 Q 24 92 42 80 Q 61 92 80 80 Q 99 92 118 80 Q 137 92 156 80 Q 175 92 194 80 Q 214 92 235 80" fill="none" stroke="#d4af37" stroke-width="2.5" />
+
+          <!-- Side Corner Posts -->
+          <rect x="18" y="75" width="18" height="240" fill="url(#boothWood)" stroke="#15060b" stroke-width="2" />
+          <rect x="204" y="75" width="18" height="240" fill="url(#boothWood)" stroke="#15060b" stroke-width="2" />
+
+          <!-- Arched Service Window Frame (Behind which ghost hides and reveals) -->
+          <path d="M 36 175 L 36 125 Q 120 85 204 125 L 204 175 Z" fill="#0d0408" stroke="#5a2233" stroke-width="3" />
+
+          <!-- Service Window Sill / Brass Rail -->
+          <rect x="30" y="172" width="180" height="10" rx="3" fill="url(#counterBrass)" stroke="#3a2505" stroke-width="1.5" />
+
+          <!-- SOLID OPAQUE FRONT LOWER COUNTER (Physical Hiding Barrier) -->
+          <rect x="20" y="180" width="200" height="135" fill="url(#boothWood)" stroke="#15060b" stroke-width="2" />
+          
+          <!-- Wood Planks Detailing -->
+          <line x1="55" y1="180" x2="55" y2="315" stroke="#15060b" stroke-width="2" />
+          <line x1="95" y1="180" x2="95" y2="315" stroke="#15060b" stroke-width="2" />
+          <line x1="145" y1="180" x2="145" y2="315" stroke="#15060b" stroke-width="2" />
+          <line x1="185" y1="180" x2="185" y2="315" stroke="#15060b" stroke-width="2" />
+          <!-- Horizontal Brace & Rivets -->
+          <rect x="22" y="225" width="196" height="18" fill="#30131e" stroke="#15060b" stroke-width="1.5" />
+          <circle cx="38" cy="234" r="2.5" fill="#d4af37" />
+          <circle cx="75" cy="234" r="2.5" fill="#d4af37" />
+          <circle cx="120" cy="234" r="2.5" fill="#d4af37" />
+          <circle cx="165" cy="234" r="2.5" fill="#d4af37" />
+          <circle cx="202" cy="234" r="2.5" fill="#d4af37" />
+
+          <!-- Lower Base Molding -->
+          <rect x="15" y="305" width="210" height="12" rx="2" fill="#1b0810" stroke="#0a0206" stroke-width="2" />
+        </svg>
+      </div>
+
+      <!-- SHARED COURTYARD STAGE ACTORS AREA -->
+      <div class="courtyard-stage-actors" aria-label="Courtyard Performance Stage">
+
+        <!-- GHOST ACTOR: Nested Position -> Viewport/Clipping -> Motion -> SVG Artwork -->
+        <div class="actor-container actor-ghost" id="ghostPosNode" aria-label="Casper the Carnival Ghost">
+          <!-- Ghost Speech Bubble (Anchored Above Ghost) -->
+          <div class="dialogue-bubble ghost-bubble" id="ghostDialogue" role="status" aria-live="polite">
+            <p id="dialogueText">“...Boo? *squeak* ...Oh dear. That sounded better in my head. My first customer! Can you coach my entrance?”</p>
+          </div>
+
+          <!-- Concealment Clipping Viewport (Clips at bottom of counter) -->
+          <div class="ghost-viewport" id="ghostViewportNode">
+            <!-- Motion Bobbing Wrapper (Decoupled from world position and face expressions) -->
+            <div class="ghost-motion" id="ghostMotionNode">
+              <!-- Ghost Wrapper & Inline SVG Artwork -->
+              <div class="ghost-wrapper" id="ghostCharacter">
+                <svg id="ghostSvg" viewBox="0 0 200 240" class="ghost-svg ghost-embarrassed" role="img" aria-label="Casper the earnest cloth ghost">
+                  <defs>
+                    <radialGradient id="ghostGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+                      <stop offset="75%" stop-color="#e2f1f8" stop-opacity="0.85" />
+                      <stop offset="100%" stop-color="#b8dce8" stop-opacity="0.4" />
+                    </radialGradient>
+                    <filter id="shadowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="12" stdDeviation="8" flood-color="#0a0514" flood-opacity="0.45" />
+                    </filter>
+                  </defs>
+
+                  <ellipse cx="100" cy="225" rx="55" ry="10" class="stage-shadow" />
+
+                  <g class="ghost-body-group" filter="url(#shadowFilter)">
+                    <path id="ghostSheet" class="ghost-sheet" d="
+                      M 100 25
+                      C 55 25, 40 70, 40 120
+                      C 40 165, 45 195, 48 205
+                      C 58 195, 68 215, 78 200
+                      C 88 215, 98 190, 108 205
+                      C 118 190, 128 215, 138 200
+                      C 148 215, 155 195, 160 205
+                      C 162 165, 160 70, 100 25 Z
+                    " fill="url(#ghostGlow)" />
+
+                    <ellipse id="blushLeft" cx="65" cy="118" rx="8" ry="5" class="blush" />
+                    <ellipse id="blushRight" cx="135" cy="118" rx="8" ry="5" class="blush" />
+
+                    <g id="ghostEyes" class="ghost-eyes">
+                      <ellipse id="eyeLeft" cx="75" cy="98" rx="7" ry="9" class="eye-pupil" />
+                      <ellipse id="eyeRight" cx="125" cy="98" rx="7" ry="9" class="eye-pupil" />
+                      <circle id="eyeShineLeft" cx="73" cy="95" r="2.5" fill="#fff" />
+                      <circle id="eyeShineRight" cx="123" cy="95" r="2.5" fill="#fff" />
+                    </g>
+
+                    <path id="ghostMouth" class="ghost-mouth mouth-embarrassed" d="M 94 122 Q 100 128 106 122" />
+
+                    <path id="armLeft" class="ghost-arm" d="M 45 125 Q 30 135 45 145" />
+                    <path id="armRight" class="ghost-arm" d="M 155 125 Q 170 135 155 145" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BARNABY ACTOR: Nested Position -> Motion/Waddle -> SVG Artwork -->
+        <div class="actor-container actor-visitor" id="visitorPosNode" aria-label="Barnaby the Clockwork Tin Bear">
+          <!-- Visitor Speech Bubble (Anchored Above Barnaby) -->
+          <div class="dialogue-bubble visitor-bubble hidden" id="visitorDialogue" role="status" aria-live="polite">
+            <p id="visitorDialogueText">...</p>
+          </div>
+
+          <!-- Motion / Walking Waddle Wrapper -->
+          <div class="visitor-motion" id="visitorMotionNode">
+            <!-- Visitor Wrapper & Inline SVG Artwork -->
+            <div class="visitor-wrapper" id="visitorCharacter">
+              <svg id="visitorSvg" viewBox="0 0 160 200" class="visitor-svg visitor-idle" role="img" aria-label="Barnaby the Clockwork Tin Bear">
+                <defs>
+                  <linearGradient id="tinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#a67c52" />
+                    <stop offset="40%" stop-color="#805933" />
+                    <stop offset="100%" stop-color="#4a3018" />
+                  </linearGradient>
+                  <linearGradient id="brassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffe270" />
+                    <stop offset="50%" stop-color="#d4af37" />
+                    <stop offset="100%" stop-color="#8c701e" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse cx="80" cy="188" rx="42" ry="8" class="visitor-shadow" />
+
+                <!-- Winding Key on Back -->
+                <g id="windingKey" class="winding-key">
+                  <path d="M 125 105 L 145 105" stroke="#d4af37" stroke-width="4" stroke-linecap="round" />
+                  <circle cx="148" cy="98" r="9" fill="none" stroke="#d4af37" stroke-width="3" />
+                  <circle cx="148" cy="112" r="9" fill="none" stroke="#d4af37" stroke-width="3" />
+                </g>
+
+                <!-- Body -->
+                <rect x="50" y="80" width="60" height="75" rx="18" fill="url(#tinGradient)" stroke="#2b1a0b" stroke-width="2.5" />
+                <rect x="62" y="96" width="36" height="42" rx="10" fill="url(#brassGradient)" opacity="0.9" stroke="#5a4212" stroke-width="1.5" />
+                <circle cx="67" cy="102" r="1.5" fill="#3a2505" />
+                <circle cx="93" cy="102" r="1.5" fill="#3a2505" />
+                <circle cx="67" cy="132" r="1.5" fill="#3a2505" />
+                <circle cx="93" cy="132" r="1.5" fill="#3a2505" />
+
+                <!-- Head -->
+                <circle cx="80" cy="55" r="32" fill="url(#tinGradient)" stroke="#2b1a0b" stroke-width="2.5" />
+                <circle cx="56" cy="30" r="12" fill="url(#tinGradient)" stroke="#2b1a0b" stroke-width="2" />
+                <circle cx="56" cy="30" r="6" fill="url(#brassGradient)" />
+                <circle cx="104" cy="30" r="12" fill="url(#tinGradient)" stroke="#2b1a0b" stroke-width="2" />
+                <circle cx="104" cy="30" r="6" fill="url(#brassGradient)" />
+
+                <!-- Face -->
+                <circle id="visitorEyeL" cx="70" cy="50" r="5" fill="#150d06" />
+                <circle cx="68" cy="48" r="1.5" fill="#fff" />
+                <circle id="visitorEyeR" cx="90" cy="50" r="5" fill="#150d06" />
+                <circle cx="88" cy="48" r="1.5" fill="#fff" />
+
+                <ellipse cx="80" cy="62" rx="14" ry="10" fill="#d9b68b" stroke="#331e0c" stroke-width="1.5" />
+                <polygon points="76,57 84,57 80,63" fill="#2b1a0b" />
+                <path id="visitorMouth" d="M 76 66 Q 80 69 84 66" fill="none" stroke="#2b1a0b" stroke-width="2" stroke-linecap="round" />
+
+                <!-- Arms -->
+                <path id="visitorArmL" class="visitor-arm" d="M 48 95 Q 36 115 50 125" fill="none" stroke="url(#tinGradient)" stroke-width="8" stroke-linecap="round" />
+                <path id="visitorArmR" class="visitor-arm" d="M 112 95 Q 124 115 110 125" fill="none" stroke="url(#tinGradient)" stroke-width="8" stroke-linecap="round" />
+
+                <!-- Feet -->
+                <ellipse cx="62" cy="160" rx="14" ry="8" fill="url(#brassGradient)" stroke="#2b1a0b" stroke-width="2" />
+                <ellipse cx="98" cy="160" rx="14" ry="8" fill="url(#brassGradient)" stroke="#2b1a0b" stroke-width="2" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- COMPACT CONTEXTUAL CONTROL DOCK (Directly below landscape scene) -->
+    <section class="control-dock" id="controlDock" aria-label="Game Control Dock">
+
+      <!-- Recoverable Error Notification Banner -->
+      <div id="recoverableErrorBanner" class="error-banner hidden" role="alert">
+        <span id="errorMessage">Communication paused. Please try again.</span>
+        <button id="retryErrorBtn" class="btn btn-sm btn-secondary">🔄 Try Again</button>
+      </div>
+
+      <!-- STEP 1: Arrival Screen (User-Clicked "Enter the carnival") -->
+      <div id="stepArrival" class="game-step-view">
+        <div class="step-narrative">
+          <p>A quiet, moonlit night in the abandoned carnival courtyard...</p>
+        </div>
+        <button id="startCoachingBtn" class="btn btn-primary" aria-label="Enter the carnival courtyard">
+          🎟 Enter the carnival
+        </button>
+      </div>
+
+      <!-- STEP 2: Entrance Coaching Screen -->
+      <div id="stepCoaching" class="game-step-view hidden">
+        <div class="step-narrative">
+          <label for="coachInput" class="step-label">How should our ghost make its entrance?</label>
+        </div>
+        <form id="coachForm" class="coach-form">
+          <div class="coach-input-group">
+            <input 
+              type="text" 
+              id="coachInput" 
+              class="coach-input" 
+              placeholder="e.g. Hide behind the ticket booth, then spooky boo" 
+              autocomplete="off" 
+              maxlength="150" 
+              aria-label="Coaching instruction for the ghost"
+            />
+            <button type="submit" id="coachBtn" class="btn btn-primary">Plan Entrance</button>
+          </div>
+        </form>
+        <div class="coach-chips-row" aria-label="Disclosed entrance plans">
+          <button type="button" class="coach-chip" data-text="Hide behind the ticket booth, then spooky boo">“Hide behind the ticket booth, then spooky boo”</button>
+          <button type="button" class="coach-chip" data-text="Pause for suspense, then whisper boo">“Pause for suspense, then whisper boo”</button>
+          <button type="button" class="coach-chip" data-text="Creep in slow motion, then spooky boo">“Creep in slow motion, then spooky boo”</button>
+          <button type="button" class="coach-chip" data-text="Hide behind the booth, then emerge">“Hide behind the booth, then emerge”</button>
+        </div>
+        <div id="coachingThinking" class="thinking-indicator hidden" aria-live="polite">
+          <span class="thinking-spinner" aria-hidden="true">⏳</span>
+          <span>The ghost is pondering your plan on UNO Q machine brain...</span>
+        </div>
+      </div>
+
+      <!-- STEP 3: Optional Sound Demonstration Screen -->
+      <div id="stepRecording" class="game-step-view hidden">
+        <div class="step-narrative">
+          <p id="soundPromptText">Our ghost needs to hear your sound to rehearse!</p>
+        </div>
+        <div class="controls-row primary-controls" id="recordingInitialControls">
+          <button id="recordBtn" class="btn btn-record" aria-label="Record sound demonstration">
+            <span class="record-icon" aria-hidden="true"></span>
+            <span id="recordBtnText">Record Sound (2–3s)</span>
+          </button>
+          <button id="reuseAudioBtn" class="btn btn-secondary hidden" aria-label="Reuse previous recorded sound">
+            🔁 Use Kept Recording
+          </button>
+          <button id="defaultSoundBtn" class="btn btn-tertiary" aria-label="Use default ghost sound without recording">
+            👻 Use Ghost Squeak
+          </button>
+        </div>
+        <!-- Recording Meter -->
+        <div id="recordingFeedback" class="recording-feedback hidden" aria-live="assertive">
+          <div class="meter-bar"><div id="meterProgress" class="meter-fill"></div></div>
+          <p id="meterStatus">Listening closely to your sound...</p>
+        </div>
+        <!-- Keep / Retry Row -->
+        <div id="soundDecisionRow" class="controls-row hidden">
+          <button id="keepSoundBtn" class="btn btn-primary">
+            ✓ Keep Sound & Rehearse
+          </button>
+          <button id="retrySoundBtn" class="btn btn-secondary">
+            🔄 Try Sound Again
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Performance View (Active Animation Banner) -->
+      <div id="stepPerformance" class="game-step-view hidden">
+        <div class="performance-banner" id="performanceBanner" aria-live="polite">
+          <span class="theatre-mask" aria-hidden="true">🎭</span>
+          <span id="performanceActionText">Rehearsing Entrance...</span>
+        </div>
+      </div>
+
+      <!-- STEP 5: Outcome & Revision Screen -->
+      <div id="stepOutcome" class="game-step-view hidden">
+        <div class="controls-row outcome-buttons">
+          <button id="reviseBtn" class="btn btn-primary">
+            ✏ Rehearse Another Entrance
+          </button>
+          <button id="againSlowerBtn" class="btn btn-secondary">
+            ⏳ Again, but slower
+          </button>
+          <button id="finaleBtn" class="btn btn-gold">
+            🌟 Grand Finale Performance
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 6: Earned Grand Finale Screen -->
+      <div id="stepFinale" class="game-step-view hidden">
+        <div class="step-narrative finale-narrative">
+          <p id="finaleNarrativeText">🎉 The Carnival Phantom has found its haunt! Warm bulbs flash and the crowd cheers!</p>
+        </div>
+        <button id="restartBtn" class="btn btn-primary">
+          🔄 Restart Show
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Footer with Developer Panel Toggle -->
+    <footer class="booth-footer">
+      <div class="booth-info">
+        <span>DEV Hacktoberfest 2026: <em>Ghost in the Machine</em></span>
+        <span class="sep">•</span>
+        <span>Arduino UNO Q + LiteRT & Qwen 2.5</span>
+      </div>
+      <button id="toggleDiagBtn" class="btn-text-diag" aria-expanded="false" aria-controls="diagnosticsPanel">
+        ⚙ Diagnostics
+      </button>
+    </footer>
+  </div>
+
+  <!-- Developer Diagnostics Drawer (Initially Collapsed) -->
+  <aside id="diagnosticsPanel" class="diagnostics-drawer hidden" aria-label="Model Diagnostics View">
+    <div class="diag-header">
+      <h2>Model & Hardware Diagnostics</h2>
+      <button id="closeDiagBtn" class="btn-close" aria-label="Close diagnostics">&times;</button>
+    </div>
+    <div class="diag-content">
+      <div class="diag-card">
+        <h3>Edge Inference Environment</h3>
+        <ul>
+          <li><strong>Host Device:</strong> Arduino UNO Q Linux (<code>aarch64</code> Qualcomm SoC)</li>
+          <li><strong>Microcontroller:</strong> STM32U585xx Cortex-M33 (Bridge RPC)</li>
+          <li><strong>Display:</strong> Physical 8×13 Grayscale LED Matrix (Status: decoupled)</li>
+          <li><strong>Audio Model:</strong> YAMNet TFLite (15.3 MB, LiteRT CPU XNNPACK)</li>
+          <li><strong>Instruction LLM:</strong> Qwen 2.5 0.5B Instruct (469 MB GGUF, <code>llama-server</code>)</li>
+        </ul>
+      </div>
+
+      <div class="diag-card">
+        <h3>Active Act Plan & Semantic Coaching</h3>
+        <table class="diag-table" id="diagPlanTable">
+          <tbody>
+            <tr><th>Actions Planned:</th><td id="diagPlanActions">—</td></tr>
+            <tr><th>Pace:</th><td id="diagPlanPace">—</td></tr>
+            <tr><th>Needs Sound:</th><td id="diagPlanSound">—</td></tr>
+            <tr><th>LLM Latency:</th><td id="diagPlanLatency">—</td></tr>
+            <tr><th>Token Speed:</th><td id="diagPlanTokenSpeed">—</td></tr>
+            <tr><th>Dialogue Line:</th><td id="diagPlanDialogue">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diag-card">
+        <h3>Performance Outcome & Game Rule</h3>
+        <table class="diag-table" id="diagOutcomeTable">
+          <tbody>
+            <tr><th>Visitor Reaction:</th><td id="diagOutcomeResult">—</td></tr>
+            <tr><th>Rule Applied:</th><td id="diagOutcomeRule">—</td></tr>
+            <tr><th>Rule Explanation:</th><td id="diagRuleExplanation">—</td></tr>
+            <tr><th>Pace Effect:</th><td id="diagPaceEffect">—</td></tr>
+            <tr><th>LED Matrix RPC:</th><td id="diagMatrixStatus">skipped (animation firmware active)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diag-card">
+        <h3>Audio Classifier (YAMNet)</h3>
+        <table class="diag-table" id="diagAudioTable">
+          <tbody>
+            <tr><th>Active Audio ID:</th><td id="diagAudioId">—</td></tr>
+            <tr><th>Audio Source:</th><td id="diagAudioSource">—</td></tr>
+            <tr><th>Inference Latency:</th><td id="diagInferLatency">—</td></tr>
+            <tr><th>Audio Duration / RMS:</th><td id="diagAudioMetrics">—</td></tr>
+            <tr><th>Top Category:</th><td id="diagCategory">—</td></tr>
+          </tbody>
+        </table>
+        <ol id="diagTopClassesList" class="diag-classes-list">
+          <li><em>Awaiting recording inference...</em></li>
+        </ol>
+      </div>
+    </div>
+  </aside>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

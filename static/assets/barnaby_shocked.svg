@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 150" width="130" height="150">
+  <defs>
+    <linearGradient id="tinGradShock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a67c52" />
+      <stop offset="40%" stop-color="#805933" />
+      <stop offset="100%" stop-color="#4a3018" />
+    </linearGradient>
+    <linearGradient id="brassGradShock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe270" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#8c701e" />
+    </linearGradient>
+  </defs>
+
+  <!-- Winding Key Spinning Blur Effect -->
+  <g transform="translate(10, 0)">
+    <path d="M 88 75 L 105 75" stroke="#d4af37" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="107" cy="69" r="8" fill="none" stroke="#ffe270" stroke-width="2" stroke-dasharray="3,3" />
+    <circle cx="107" cy="81" r="8" fill="none" stroke="#ffe270" stroke-width="2" stroke-dasharray="3,3" />
+  </g>
+
+  <!-- Feet (Kicking up in surprise) -->
+  <ellipse cx="40" cy="130" rx="13" ry="8" fill="url(#brassGradShock)" stroke="#2b1a0b" stroke-width="1.8" transform="rotate(-18 40 130)" />
+  <ellipse cx="80" cy="130" rx="13" ry="8" fill="url(#brassGradShock)" stroke="#2b1a0b" stroke-width="1.8" transform="rotate(18 80 130)" />
+
+  <!-- Body -->
+  <rect x="35" y="60" width="50" height="65" rx="15" fill="url(#tinGradShock)" stroke="#2b1a0b" stroke-width="2.2" />
+  <rect x="45" y="73" width="30" height="36" rx="8" fill="url(#brassGradShock)" opacity="0.92" stroke="#5a4212" stroke-width="1.4" />
+
+  <!-- Head -->
+  <circle cx="60" cy="38" r="26" fill="url(#tinGradShock)" stroke="#2b1a0b" stroke-width="2.2" />
+  <!-- Ears -->
+  <circle cx="38" cy="16" r="10" fill="url(#tinGradShock)" stroke="#2b1a0b" stroke-width="1.8" />
+  <circle cx="38" cy="16" r="5" fill="url(#brassGradShock)" />
+  <circle cx="82" cy="16" r="10" fill="url(#tinGradShock)" stroke="#2b1a0b" stroke-width="1.8" />
+  <circle cx="82" cy="16" r="5" fill="url(#brassGradShock)" />
+
+  <!-- Startled Big Wide Eyes -->
+  <circle cx="50" cy="34" r="5.5" fill="#150d06" />
+  <circle cx="48.5" cy="32.5" r="2" fill="#fff" />
+  <circle cx="70" cy="34" r="5.5" fill="#150d06" />
+  <circle cx="68.5" cy="32.5" r="2" fill="#fff" />
+
+  <!-- Open Shocked Mouth -->
+  <ellipse cx="60" cy="45" rx="10" ry="8" fill="#d9b68b" stroke="#331e0c" stroke-width="1.3" />
+  <ellipse cx="60" cy="47" rx="5" ry="6" fill="#150d06" />
+
+  <!-- Arms Thrown High in Surprise -->
+  <path d="M 35 68 Q 14 50 20 32" fill="none" stroke="url(#tinGradShock)" stroke-width="7" stroke-linecap="round" />
+  <path d="M 85 68 Q 106 50 100 32" fill="none" stroke="url(#tinGradShock)" stroke-width="7" stroke-linecap="round" />
+
+  <!-- Shock Sparkles -->
+  <path d="M 24 20 L 28 26 L 34 22 L 30 28 L 36 34 L 28 32 Z" fill="#ffe270" />
+  <path d="M 96 20 L 92 26 L 86 22 L 90 28 L 84 34 L 92 32 Z" fill="#ffe270" />
+</svg>

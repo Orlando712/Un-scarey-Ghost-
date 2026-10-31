@@ -1,0 +1,1016 @@
+/*
+  SPDX-FileCopyrightText: Copyright (C) 2026 Boo, Please! Project
+  SPDX-License-Identifier: MPL-2.0
+*/
+
+:root {
+  --color-plum-dark: #0e0717;
+  --color-plum-mid: #1d1029;
+  --color-plum-light: #361f4c;
+  --color-plum-border: #4a2d68;
+  --color-gold: #e2a838;
+  --color-gold-glow: rgba(226, 168, 56, 0.35);
+  --color-bulb-warm: #ffdc73;
+  --color-bulb-glow: rgba(255, 220, 115, 0.55);
+  --color-parchment: #fbf5e8;
+  --color-parchment-border: #d4c19c;
+  --color-text-main: #241730;
+  --color-text-light: #ece3f5;
+  --color-text-dim: #a693b8;
+  --color-teal: #2b7a84;
+  --color-curtain-wine: #5c182b;
+  --font-serif: "Cinzel", "Georgia", "Palatino", "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --radius-scene: 16px;
+  --radius-dock: 14px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-plum-dark);
+  color: var(--color-text-light);
+  font-family: var(--font-sans);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0.5rem;
+  background-image: 
+    radial-gradient(ellipse at 50% 5%, rgba(226, 168, 56, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #130a1c 0%, #09040f 100%);
+}
+
+/* App Shell */
+.carnival-app-shell {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 98vh;
+  position: relative;
+}
+
+/* Header */
+.booth-header {
+  text-align: center;
+  padding: 0.3rem 0.5rem 0.4rem 0.5rem;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.light-bulbs-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.bulb {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--color-bulb-warm);
+  box-shadow: 0 0 8px var(--color-bulb-glow);
+  opacity: 0.9;
+  animation: bulbFlicker 4s infinite alternate ease-in-out;
+}
+
+.bulb:nth-child(2) { animation-delay: 0.7s; }
+.bulb:nth-child(3) { animation-delay: 1.4s; }
+.bulb:nth-child(4) { animation-delay: 2.1s; }
+.bulb:nth-child(5) { animation-delay: 2.8s; }
+.bulb:nth-child(6) { animation-delay: 3.5s; }
+
+@keyframes bulbFlicker {
+  0% { opacity: 0.92; filter: brightness(1); }
+  50% { opacity: 0.75; filter: brightness(0.85); }
+  75% { opacity: 1; filter: brightness(1.2); }
+  100% { opacity: 0.88; filter: brightness(0.95); }
+}
+
+.theatrical-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-bulb-warm);
+  text-shadow: 0 0 12px rgba(255, 220, 115, 0.4), 0 2px 4px rgba(0,0,0,0.8);
+  margin-bottom: 0.1rem;
+}
+
+.booth-subtitle {
+  font-size: 0.82rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* --- Shared Landscape Scene (Courtyard) --- */
+.courtyard-scene {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 215px);
+  min-height: 420px;
+  max-height: 560px;
+  background-color: #0b0514;
+  border: 3px solid var(--color-plum-border);
+  border-radius: var(--radius-scene);
+  overflow: hidden;
+  box-shadow: 
+    0 14px 40px rgba(0, 0, 0, 0.75),
+    inset 0 0 50px rgba(0, 0, 0, 0.6);
+  flex-grow: 1;
+}
+
+/* SVG Scene Backdrop */
+.scene-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ambient Drifting Mist */
+.ambient-mist-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mist-drift-cloud {
+  position: absolute;
+  bottom: 60px;
+  left: -40%;
+  width: 180%;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(195, 180, 220, 0.09) 0%, rgba(140, 120, 175, 0.04) 50%, transparent 75%);
+  filter: blur(22px);
+}
+
+.mist-layer-1 {
+  animation: mistDrift1 28s ease-in-out infinite alternate;
+}
+
+.mist-layer-2 {
+  bottom: 40px;
+  animation: mistDrift2 36s ease-in-out infinite alternate;
+  opacity: 0.7;
+}
+
+@keyframes mistDrift1 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120px); }
+}
+
+@keyframes mistDrift2 {
+  0% { transform: translateX(60px); }
+  100% { transform: translateX(-80px); }
+}
+
+/* Weathered Carnival Ticket Booth */
+.courtyard-ticket-booth {
+  position: absolute;
+  left: 3%;
+  bottom: 20px;
+  width: 230px;
+  height: 310px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.booth-sign-wrapper {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 45px;
+  z-index: 12;
+}
+
+.swinging-sign {
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 0%;
+  animation: signSway 4.8s ease-in-out infinite alternate;
+}
+
+@keyframes signSway {
+  0% { transform: rotate(-2.8deg); }
+  100% { transform: rotate(2.8deg); }
+}
+
+.booth-structure-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.65));
+}
+
+/* Courtyard Stage Actors Area */
+.courtyard-stage-actors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.actor-container {
+  pointer-events: auto;
+}
+
+/* --- Ghost Actor Positioning & Decoupled Wrappers --- */
+#ghostPosNode {
+  position: absolute;
+  bottom: 25px;
+  left: 35%;
+  width: 170px;
+  height: 240px;
+  transition: left 1.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 5;
+}
+
+/* Ghost positions */
+#ghostPosNode.at-booth {
+  left: 8.5%;
+}
+
+#ghostPosNode.at-mark {
+  left: 35%;
+}
+
+/* Ghost Viewport (Clipping Bounds) */
+.ghost-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Ghost Motion (Decoupled Bobbing & Y-Translation) */
+.ghost-motion {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: ghostFloat 3.2s ease-in-out infinite alternate;
+  transform: translateY(0);
+}
+
+@keyframes ghostFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-9px); }
+}
+
+/* Ghost Action Motions */
+.ghost-motion.ghost-hide {
+  animation: none;
+  transform: translateY(175px);
+  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ghost-motion.ghost-emerge {
+  animation: none;
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.18, 0.89, 0.32, 1.25);
+}
+
+.ghost-motion.ghost-slower_scare {
+  animation: none;
+  transform: translateY(0);
+  transition: transform 2.2s cubic-bezier(0.18, 0.89, 0.32, 1.25);
+}
+
+.ghost-motion.ghost-curtsy_blush {
+  animation: none;
+  transform: translateY(14px) scale(0.96);
+  transition: transform 0.75s ease-in-out;
+}
+
+.ghost-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.ghost-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 10px rgba(184, 220, 232, 0.4));
+  transition: transform 0.3s ease;
+}
+
+/* Ghost Expressions / SVG Details */
+.ghost-sheet {
+  transition: fill 0.4s ease;
+}
+
+.blush {
+  fill: #ff8ca3;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.ghost-embarrassed .blush {
+  opacity: 0.8;
+}
+
+.ghost-eyes {
+  transform-origin: 100px 98px;
+  transition: transform 0.3s ease;
+}
+
+.ghost-embarrassed .ghost-eyes {
+  transform: translateY(3px) scale(0.9);
+}
+
+.ghost-listening .ghost-eyes {
+  transform: translateY(-2px) scale(1.1);
+}
+
+.ghost-spooky .ghost-eyes {
+  transform: scaleY(1.35) scaleX(1.15);
+}
+
+.ghost-mouth {
+  stroke: #140b1c;
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+  transition: d 0.3s ease;
+}
+
+.ghost-arm {
+  fill: none;
+  stroke: #d0e7f2;
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0.85;
+  transition: transform 0.3s ease;
+  transform-origin: 100px 135px;
+}
+
+.ghost-spooky .ghost-arm {
+  stroke: #fff;
+  opacity: 1;
+}
+
+.ghost-curtsy_blush .blush {
+  opacity: 0.9;
+}
+
+.stage-shadow {
+  fill: rgba(10, 5, 20, 0.55);
+}
+
+/* --- Barnaby Actor Positioning & Motion --- */
+#visitorPosNode {
+  position: absolute;
+  bottom: 25px;
+  left: 106%; /* Offscreen right by default */
+  width: 150px;
+  height: 200px;
+  transition: left 2.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 6;
+}
+
+#visitorPosNode.on-mark {
+  left: 67%;
+}
+
+.visitor-motion {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.visitor-motion.walking {
+  animation: bearWalkBob 0.65s ease-in-out infinite;
+}
+
+@keyframes bearWalkBob {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-7px) rotate(-3.5deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-7px) rotate(3.5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.visitor-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.visitor-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.6));
+  transition: transform 0.4s ease;
+}
+
+.visitor-shadow {
+  fill: rgba(10, 5, 20, 0.55);
+}
+
+/* Visitor Reactions */
+.visitor-svg.visitor-shocked {
+  animation: bearShock 0.85s ease-out forwards;
+}
+
+@keyframes bearShock {
+  0% { transform: translateY(0) scale(1); }
+  20% { transform: translateY(-28px) scale(1.08) rotate(-4deg); }
+  45% { transform: translateY(-16px) scale(1.04) rotate(3deg); }
+  70% { transform: translateY(-4px) scale(1.01) rotate(-1deg); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.visitor-svg.visitor-amused {
+  animation: bearChuckle 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes bearChuckle {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
+}
+
+.visitor-svg.visitor-bowing {
+  transform: translateY(6px) rotate(-9deg);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.winding-key {
+  transform-origin: 148px 105px;
+  animation: keyWind 3.5s linear infinite;
+}
+
+@keyframes keyWind {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --- Dialogue Speech Bubbles --- */
+.dialogue-bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-parchment);
+  color: var(--color-text-main);
+  border: 2px solid var(--color-parchment-border);
+  border-radius: 14px;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 25;
+  width: max-content;
+  max-width: 250px;
+  text-align: center;
+  word-break: break-word;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.dialogue-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: var(--color-parchment) transparent transparent transparent;
+}
+
+.dialogue-bubble::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: var(--color-parchment-border) transparent transparent transparent;
+  margin-top: 1px;
+}
+
+.ghost-bubble {
+  border-color: #bcd4e6;
+}
+
+.visitor-bubble {
+  border-color: #d8c19a;
+}
+
+/* --- Compact Contextual Control Dock --- */
+.control-dock {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0.55rem auto 0 auto;
+  padding: 0.75rem 1.2rem;
+  background: var(--color-plum-mid);
+  border: 2px solid var(--color-plum-border);
+  border-radius: var(--radius-dock);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  flex-shrink: 0;
+}
+
+/* Recoverable Error Banner */
+.error-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  background: #4a1525;
+  border: 1px solid #a83250;
+  color: #ffccd5;
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.85rem;
+}
+
+/* Game Step Views */
+.game-step-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.step-narrative {
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+.step-label {
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.02em;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: var(--color-gold);
+  color: #1a0f02;
+  box-shadow: 0 3px 10px rgba(226, 168, 56, 0.35);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #f0b74a;
+  box-shadow: 0 4px 14px rgba(226, 168, 56, 0.5);
+}
+
+.btn-secondary {
+  background: var(--color-plum-light);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-plum-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #4a2b66;
+}
+
+.btn-tertiary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-dim);
+  border: 1px dashed var(--color-plum-border);
+}
+
+.btn-tertiary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--color-text-light);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #ffd966 0%, #e2a838 50%, #b8821a 100%);
+  color: #140801;
+  box-shadow: 0 4px 15px rgba(226, 168, 56, 0.45);
+}
+
+.btn-gold:hover:not(:disabled) {
+  filter: brightness(1.1);
+  box-shadow: 0 5px 18px rgba(226, 168, 56, 0.6);
+}
+
+.btn-record {
+  background: #8c1e34;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(140, 30, 52, 0.4);
+}
+
+.btn-record:hover:not(:disabled) {
+  background: #a8253f;
+}
+
+.btn-record.recording {
+  background: #d42244;
+  animation: recordPulse 1s infinite alternate;
+}
+
+@keyframes recordPulse {
+  0% { box-shadow: 0 0 4px #d42244; }
+  100% { box-shadow: 0 0 16px #ff4d6d; }
+}
+
+.record-icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-block;
+}
+
+.btn-sm {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+}
+
+/* Controls Rows */
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+/* Coach Form & Chips */
+.coach-form {
+  width: 100%;
+  max-width: 580px;
+}
+
+.coach-input-group {
+  display: flex;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.coach-input {
+  flex-grow: 1;
+  padding: 0.55rem 0.85rem;
+  border-radius: 9px;
+  border: 1px solid var(--color-plum-border);
+  background: #140920;
+  color: #fff;
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.coach-input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 8px var(--color-gold-glow);
+}
+
+.coach-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.coach-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid #3d2454;
+  color: #d1c2e4;
+  padding: 0.3rem 0.65rem;
+  border-radius: 14px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.coach-chip:hover {
+  background: rgba(226, 168, 56, 0.15);
+  border-color: var(--color-gold);
+  color: #fff;
+}
+
+.thinking-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  color: var(--color-gold);
+  padding: 0.3rem 0;
+}
+
+.thinking-spinner {
+  animation: spin 1.4s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Recording Feedback Meter */
+.recording-feedback {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+.meter-bar {
+  width: 100%;
+  height: 8px;
+  background: #150920;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #3d2454;
+  margin-bottom: 0.35rem;
+}
+
+.meter-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #2b7a84 0%, #e2a838 70%, #d42244 100%);
+  transition: width 0.1s linear;
+}
+
+#meterStatus {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+}
+
+/* Performance Banner */
+.performance-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.1rem;
+  background: rgba(226, 168, 56, 0.12);
+  border: 1px solid var(--color-gold);
+  border-radius: 10px;
+  color: var(--color-bulb-warm);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.theatre-mask {
+  font-size: 1.2rem;
+}
+
+/* Grand Finale Narrative */
+.finale-narrative {
+  color: var(--color-bulb-warm);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Footer & Diagnostics Toggle */
+.booth-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.5rem 0.2rem 0.5rem;
+  font-size: 0.74rem;
+  color: #7d6b91;
+  flex-shrink: 0;
+}
+
+.booth-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sep {
+  opacity: 0.5;
+}
+
+.btn-text-diag {
+  background: none;
+  border: none;
+  color: #a491ba;
+  font-size: 0.74rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+.btn-text-diag:hover {
+  color: var(--color-gold);
+}
+
+/* Diagnostics Drawer Overlay */
+.diagnostics-drawer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 520px;
+  max-height: 80vh;
+  background: #140920;
+  border: 2px solid var(--color-plum-border);
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.diag-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background: #1d0f2c;
+  border-bottom: 1px solid var(--color-plum-border);
+}
+
+.diag-header h2 {
+  font-size: 0.92rem;
+  color: var(--color-gold);
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.diag-content {
+  padding: 0.8rem 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.diag-card {
+  background: #1a0e28;
+  border: 1px solid #341c49;
+  border-radius: 8px;
+  padding: 0.7rem;
+}
+
+.diag-card h3 {
+  font-size: 0.8rem;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #301744;
+  padding-bottom: 0.3rem;
+}
+
+.diag-table {
+  width: 100%;
+  font-size: 0.76rem;
+  border-collapse: collapse;
+}
+
+.diag-table th {
+  text-align: left;
+  color: #a491ba;
+  padding: 0.2rem 0;
+  font-weight: 500;
+  width: 48%;
+}
+
+.diag-table td {
+  text-align: right;
+  color: #f0e6fa;
+  font-family: monospace;
+}
+
+.diag-classes-list {
+  padding-left: 1.2rem;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: #d1c0e3;
+  margin-top: 0.35rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .courtyard-scene {
+    height: 380px;
+    min-height: 360px;
+  }
+
+  .courtyard-ticket-booth {
+    width: 170px;
+    height: 230px;
+    bottom: 12px;
+  }
+
+  .booth-sign-wrapper {
+    width: 110px;
+    height: 35px;
+    top: -4px;
+  }
+
+  #ghostPosNode {
+    width: 130px;
+    height: 185px;
+    bottom: 15px;
+  }
+
+  #visitorPosNode {
+    width: 115px;
+    height: 155px;
+    bottom: 15px;
+  }
+
+  .dialogue-bubble {
+    font-size: 0.78rem;
+    max-width: 190px;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .control-dock {
+    padding: 0.55rem 0.8rem;
+  }
+
+  .theatrical-title {
+    font-size: 1.35rem;
+  }
+
+  .booth-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+  }
+
+  .sep {
+    display: none;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ghost-motion, .visitor-motion, .winding-key, .swinging-sign, .bulb, .mist-drift-cloud {
+    animation: none !important;
+  }
+}

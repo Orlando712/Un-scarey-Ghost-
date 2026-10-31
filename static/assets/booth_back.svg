@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 310" width="240" height="310">
+  <defs>
+    <!-- Weathered Dark Burgundy Timber -->
+    <linearGradient id="boothWoodBack" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e0a13" />
+      <stop offset="25%" stop-color="#341322" />
+      <stop offset="70%" stop-color="#2a0e1b" />
+      <stop offset="100%" stop-color="#18070f" />
+    </linearGradient>
+
+    <!-- Striped Awning Fabrics -->
+    <linearGradient id="awningPlumBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#842c4b" />
+      <stop offset="60%" stop-color="#5a1c31" />
+      <stop offset="100%" stop-color="#3a101f" />
+    </linearGradient>
+
+    <linearGradient id="awningCreamBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff8e8" />
+      <stop offset="60%" stop-color="#e8d5b2" />
+      <stop offset="100%" stop-color="#c4af89" />
+    </linearGradient>
+
+    <!-- Warm Hanging Lantern Glow Inside Cavity -->
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff5cc" stop-opacity="0.95" />
+      <stop offset="35%" stop-color="#f5b041" stop-opacity="0.7" />
+      <stop offset="70%" stop-color="#e67e22" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#e67e22" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Brass Trim -->
+    <linearGradient id="signBrassBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffec8b" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#8a6d1c" />
+    </linearGradient>
+  </defs>
+
+  <!-- Hanging Brass Sign -->
+  <g transform="translate(50, 0)">
+    <line x1="25" y1="0" x2="25" y2="12" stroke="#d4af37" stroke-width="2" />
+    <line x1="115" y1="0" x2="115" y2="12" stroke="#d4af37" stroke-width="2" />
+    <rect x="5" y="10" width="130" height="30" rx="4" fill="#2d101c" stroke="url(#signBrassBack)" stroke-width="2" />
+    <text x="70" y="30" fill="#ffefa6" font-family="'Cinzel', Georgia, serif" font-size="13" font-weight="bold" letter-spacing="3" text-anchor="middle">TICKETS</text>
+    <circle cx="15" cy="25" r="2.5" fill="#d4af37" />
+    <circle cx="125" cy="25" r="2.5" fill="#d4af37" />
+  </g>
+
+  <!-- Awning Roof & Canopy -->
+  <polygon points="12,46 228,46 238,82 2,82" fill="#18060f" />
+  <!-- Scalloped Awning Stripes -->
+  <polygon points="12,46 48,46 41,82 2,82" fill="url(#awningPlumBack)" />
+  <polygon points="48,46 84,46 80,82 41,82" fill="url(#awningCreamBack)" />
+  <polygon points="84,46 120,46 119,82 80,82" fill="url(#awningPlumBack)" />
+  <polygon points="120,46 156,46 158,82 119,82" fill="url(#awningCreamBack)" />
+  <polygon points="156,46 192,46 197,82 158,82" fill="url(#awningPlumBack)" />
+  <polygon points="192,46 228,46 238,82 197,82" fill="url(#awningCreamBack)" />
+  <!-- Scalloped Valance Brass Trim -->
+  <path d="M 2 82 Q 21 93 41 82 Q 60 93 80 82 Q 99 93 119 82 Q 138 93 158 82 Q 177 93 197 82 Q 217 93 238 82" fill="none" stroke="#d4af37" stroke-width="2.5" />
+
+  <!-- Corner Side Posts (Weathered Mahogany Wood) -->
+  <rect x="14" y="78" width="18" height="232" fill="url(#boothWoodBack)" stroke="#120409" stroke-width="2" />
+  <rect x="208" y="78" width="18" height="232" fill="url(#boothWoodBack)" stroke="#120409" stroke-width="2" />
+  <line x1="23" y1="82" x2="23" y2="310" stroke="#3d1525" stroke-width="1.2" />
+  <line x1="217" y1="82" x2="217" y2="310" stroke="#3d1525" stroke-width="1.2" />
+
+  <!-- Back Wall & Deep Shadow Window Cavity -->
+  <rect x="32" y="82" width="176" height="228" fill="#10050a" />
+  <!-- Arched Service Window Opening -->
+  <path d="M 32 185 L 32 125 Q 120 86 208 125 L 208 185 Z" fill="#050204" />
+
+  <!-- Hanging Brass Lantern Inside Window -->
+  <g transform="translate(120, 110)">
+    <line x1="0" y1="0" x2="0" y2="16" stroke="#d4af37" stroke-width="1.8" />
+    <polygon points="-6,16 6,16 4,32 -4,32" fill="#d4af37" opacity="0.9" />
+    <!-- Glowing Lantern Core -->
+    <circle cx="0" cy="24" r="18" fill="url(#lanternGlow)" />
+    <circle cx="0" cy="24" r="5" fill="#fffbe6" />
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 150" width="130" height="150">
+  <defs>
+    <linearGradient id="tinGradLaugh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a67c52" />
+      <stop offset="40%" stop-color="#805933" />
+      <stop offset="100%" stop-color="#4a3018" />
+    </linearGradient>
+    <linearGradient id="brassGradLaugh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe270" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#8c701e" />
+    </linearGradient>
+  </defs>
+
+  <!-- Winding Key on Back -->
+  <g transform="translate(10, 0)">
+    <path d="M 88 80 L 105 80" stroke="#d4af37" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="107" cy="74" r="7" fill="none" stroke="#d4af37" stroke-width="2.6" />
+    <circle cx="107" cy="86" r="7" fill="none" stroke="#d4af37" stroke-width="2.6" />
+  </g>
+
+  <!-- Feet -->
+  <ellipse cx="44" cy="138" rx="12" ry="7" fill="url(#brassGradLaugh)" stroke="#2b1a0b" stroke-width="1.8" />
+  <ellipse cx="76" cy="138" rx="12" ry="7" fill="url(#brassGradLaugh)" stroke="#2b1a0b" stroke-width="1.8" />
+
+  <!-- Body -->
+  <rect x="35" y="65" width="50" height="65" rx="15" fill="url(#tinGradLaugh)" stroke="#2b1a0b" stroke-width="2.2" />
+  <rect x="45" y="78" width="30" height="36" rx="8" fill="url(#brassGradLaugh)" opacity="0.92" stroke="#5a4212" stroke-width="1.4" />
+
+  <!-- Head (Slightly tilted up) -->
+  <circle cx="60" cy="43" r="26" fill="url(#tinGradLaugh)" stroke="#2b1a0b" stroke-width="2.2" />
+  <!-- Ears -->
+  <circle cx="40" cy="22" r="10" fill="url(#tinGradLaugh)" stroke="#2b1a0b" stroke-width="1.8" />
+  <circle cx="40" cy="22" r="5" fill="url(#brassGradLaugh)" />
+  <circle cx="80" cy="22" r="10" fill="url(#tinGradLaugh)" stroke="#2b1a0b" stroke-width="1.8" />
+  <circle cx="80" cy="22" r="5" fill="url(#brassGradLaugh)" />
+
+  <!-- Happy Arched Eyes ^ ^ -->
+  <path d="M 47 38 Q 52 32 57 38" fill="none" stroke="#150d06" stroke-width="2.6" stroke-linecap="round" />
+  <path d="M 63 38 Q 68 32 73 38" fill="none" stroke="#150d06" stroke-width="2.6" stroke-linecap="round" />
+
+  <!-- Big Chuckling Grin -->
+  <ellipse cx="60" cy="48" rx="11" ry="8" fill="#d9b68b" stroke="#331e0c" stroke-width="1.3" />
+  <path d="M 53 48 Q 60 56 67 48 Z" fill="#2b1a0b" />
+
+  <!-- Hands on Belly Chuckling -->
+  <path d="M 34 76 Q 22 92 42 98" fill="none" stroke="url(#tinGradLaugh)" stroke-width="6.5" stroke-linecap="round" />
+  <path d="M 86 76 Q 98 92 78 98" fill="none" stroke="url(#tinGradLaugh)" stroke-width="6.5" stroke-linecap="round" />
+</svg>

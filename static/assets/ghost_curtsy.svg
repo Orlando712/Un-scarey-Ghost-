@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 160" width="140" height="160">
+  <defs>
+    <radialGradient id="ghostGlowCurtsy" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98" />
+      <stop offset="75%" stop-color="#e2f1f8" stop-opacity="0.88" />
+      <stop offset="100%" stop-color="#b8dce8" stop-opacity="0.4" />
+    </radialGradient>
+    <filter id="ghostShadowCurtsy" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#0a0514" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <g filter="url(#ghostShadowCurtsy)">
+    <!-- Curtsying Sheet Body -->
+    <path d="
+      M 70 20
+      C 42 20, 30 52, 30 88
+      C 30 120, 36 140, 38 146
+      C 46 138, 54 150, 60 140
+      C 66 150, 72 136, 78 146
+      C 84 136, 90 150, 96 140
+      C 102 150, 108 138, 112 146
+      C 114 120, 112 52, 70 20 Z
+    " fill="url(#ghostGlowCurtsy)" />
+
+    <!-- Sweet Pink Cheeks -->
+    <ellipse cx="48" cy="85" rx="6.5" ry="4.5" fill="#ff7a98" opacity="0.8" />
+    <ellipse cx="92" cy="85" rx="6.5" ry="4.5" fill="#ff7a98" opacity="0.8" />
+
+    <!-- Happy Arched Eyes ^ ^ -->
+    <path d="M 48 72 Q 54 65 60 72" fill="none" stroke="#140b1c" stroke-width="2.6" stroke-linecap="round" />
+    <path d="M 80 72 Q 86 65 92 72" fill="none" stroke="#140b1c" stroke-width="2.6" stroke-linecap="round" />
+
+    <!-- Polite Smile -->
+    <path d="M 65 86 Q 70 92 75 86" fill="none" stroke="#140b1c" stroke-width="2.2" stroke-linecap="round" />
+
+    <!-- Curtsying Hem Lift Hands -->
+    <path d="M 34 94 Q 28 112 42 120" fill="none" stroke="#d0e7f2" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M 106 94 Q 112 112 98 120" fill="none" stroke="#d0e7f2" stroke-width="4.5" stroke-linecap="round" />
+  </g>
+</svg>

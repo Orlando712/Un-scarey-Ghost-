@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 160" width="140" height="160">
+  <defs>
+    <radialGradient id="ghostGlowSpooky" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1.0" />
+      <stop offset="65%" stop-color="#def2fa" stop-opacity="0.92" />
+      <stop offset="100%" stop-color="#a8dbed" stop-opacity="0.5" />
+    </radialGradient>
+    <filter id="ghostShadowSpooky" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#0a0514" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <g filter="url(#ghostShadowSpooky)">
+    <!-- Sheet Body (Slightly Flailed Hem) -->
+    <path d="
+      M 70 12
+      C 36 12, 22 46, 22 84
+      C 22 118, 26 140, 28 148
+      C 36 138, 46 156, 54 142
+      C 62 156, 70 135, 78 148
+      C 86 135, 96 156, 104 142
+      C 112 156, 116 138, 120 148
+      C 122 118, 118 46, 70 12 Z
+    " fill="url(#ghostGlowSpooky)" />
+
+    <!-- Big Wide Scary Eyes -->
+    <g>
+      <ellipse cx="52" cy="65" rx="7" ry="9" fill="#140b1c" />
+      <ellipse cx="88" cy="65" rx="7" ry="9" fill="#140b1c" />
+      <circle cx="50" cy="62" r="2.4" fill="#fff" />
+      <circle cx="86" cy="62" r="2.4" fill="#fff" />
+    </g>
+
+    <!-- Open Roaring "O" Mouth -->
+    <ellipse cx="70" cy="88" rx="8" ry="12" fill="#140b1c" />
+
+    <!-- Raised Spooky Arms -->
+    <path d="M 28 80 Q 10 65 18 52" fill="none" stroke="#e0f3fc" stroke-width="6" stroke-linecap="round" />
+    <path d="M 112 80 Q 130 65 122 52" fill="none" stroke="#e0f3fc" stroke-width="6" stroke-linecap="round" />
+  </g>
+</svg>

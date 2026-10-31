@@ -1,0 +1,38 @@
+# Environments
+.venv/
+venv/
+env/
+audio_env/
+__pycache__/
+*.pyc
+
+# Model Binaries & Weights
+*.gguf
+*.tflite
+*.bin
+models/
+
+# User Audio Recordings & Temporary Captures
+test_audio/*.wav
+*.wav
+*.mp3
+*.webm
+*.ogg
+
+# OS and Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node & Browser Artifacts
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test logs & Screenshots
+polish_*.png
+coach_test_*.png
+verify_*.png
+*.log
