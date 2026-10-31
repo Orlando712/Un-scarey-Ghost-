@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**Teaching an Unscary Ghost to Be Scary! (Powered by Arduino UNO Q & Edge AI)**
+**Teaching an Unscary Ghost to Be Scary! (on Arduino UNO Q)**
 
 [![Platform](https://img.shields.io/badge/Platform-Arduino%20UNO%20Q%20(Linux%20aarch64)-008184?logo=arduino&logoColor=white)](https://www.arduino.cc/)
 [![LLM](https://img.shields.io/badge/LLM-Qwen%202.5%200.5B%20Instruct%20(GGUF)-blue?logo=huggingface&logoColor=white)](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF)
