@@ -152,6 +152,6 @@ To ensure complete transparency regarding the edge microcomputer's capabilities:
 
 ## Repository & Publication Checklist
 
-- [ ] Public GitHub repository created and pushed: `<!-- TODO: Insert public GitHub repository URL once pushed -->`
+- [x] Public GitHub repository: [https://github.com/Orlando712/Un-scarey-Ghost-](https://github.com/Orlando712/Un-scarey-Ghost-)
 - [ ] 60–90 second demo video recorded and uploaded: `<!-- TODO: Insert YouTube / Loom demo video link once recorded -->`
 - [ ] Published to DEV under `#devchallenge` and `#hf26challenge`.

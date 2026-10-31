@@ -51,9 +51,8 @@ If your timing is impeccable ($80\text{px} \le X \le 255\text{px}$), the ghost l
 
 ## Code
 
-<!-- TODO: Insert public GitHub repository URL once pushed -->
 > 📦 **GitHub Repository:**  
-> `<!-- TODO: Insert public GitHub repository URL once pushed (e.g. https://github.com/your-username/boo-please-uno-q) -->`
+> **[https://github.com/Orlando712/Un-scarey-Ghost-](https://github.com/Orlando712/Un-scarey-Ghost-)**
 
 The codebase is organized into clean, modular tiers:
 * `server.py`: Asynchronous Python backend (`aiohttp`) managing model orchestration, session state, context resolution (*"Again, but slower"*), and deterministic game rule verification.
