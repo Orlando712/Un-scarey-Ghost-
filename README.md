@@ -35,6 +35,8 @@
 
 ## Overview
 
+> 🎥 **Gameplay Walkthrough Video (1m 32s):** [docs/demo_gameplay.mp4](docs/demo_gameplay.mp4) ([Direct Stream on GitHub](https://github.com/Orlando712/Un-scarey-Ghost-/raw/main/docs/demo_gameplay.mp4))
+
 In **Boo, Please!**, you coach an endearing, completely unsuccessful ghost haunting a weathered ticket booth in a moonlit carnival courtyard. When the ghost's first visitor—a wind-up tin bear named Barnaby—arrives on stage, the ghost freezes and asks for your guidance: *"My first customer! Help me get the timing right?"*
 
 You guide the ghost through natural conversational coaching, demonstrate vocal delivery into your microphone, watch the ghost position and conceal itself behind the booth counter, and strike the manual **BOO!** action button as the visitor walks into the encounter zone.

@@ -32,11 +32,10 @@ If your timing is impeccable ($80\text{px} \le X \le 255\text{px}$), the ghost l
 
 ## Demo
 
-<!-- TODO: Insert YouTube / Loom demo video link once recorded -->
-> 🎥 **Video Walkthrough:**  
-> `<!-- TODO: Insert public video URL here (e.g. https://www.youtube.com/watch?v=... or Loom) -->`
+> 🎥 **Gameplay Walkthrough Video (1m 32s):**  
+> **[Watch the Live Demo Walkthrough on GitHub](https://github.com/Orlando712/Un-scarey-Ghost-/raw/main/docs/demo_gameplay.mp4)**
 
-*(The video demonstrates the physical Arduino UNO Q on the desk, typed custom instructions processed locally by Qwen 2.5, microphone acoustic classification via LiteRT YAMNet, and the resulting Phaser 3 canvas reveal and Golden Ticket payoff.)*
+*(The demo video captures the full end-to-end loop: entering the moonlit courtyard, custom natural-language coaching with on-board Qwen 2.5 inference, ghost concealment behind the booth counter, manual "BOO!" scare timing at the sweet spot, Barnaby's shock reaction with the Golden Ticket payoff, and the live on-device diagnostics drawer showing sub-5-second edge telemetry.)*
 
 ### Gameplay Screenshots
 
