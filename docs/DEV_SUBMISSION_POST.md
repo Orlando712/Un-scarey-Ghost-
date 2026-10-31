@@ -1,13 +1,13 @@
 ---
-title: "Boo, Please! — Coaching an Unscary Ghost with AI on Arduino UNO Q"
+title: "Teaching an Unscary Ghost to Be Scary! (Powered by Arduino UNO Q & Edge AI)"
 published: false
-description: "A 2D physical-computing game where you coach an unscary carnival ghost using on-device LLM planning and audio classification on Arduino UNO Q."
+description: "How we used local LLM planning and audio classification on an Arduino UNO Q to teach an adorable, timid carnival ghost how to scare its first visitor."
 tags: devchallenge, hf26challenge
 canonical_url: 
 cover_image: https://raw.githubusercontent.com/Orlando712/Un-scarey-Ghost-/main/docs/assets/scare_payoff_cover.png 
 ---
 
-# Boo, Please! — Coaching an Unscary Ghost with AI on Arduino UNO Q
+# Teaching an Unscary Ghost to Be Scary! (Powered by Arduino UNO Q & Edge AI)
 
 > **DEV Hacktoberfest 2026: *Ghost in the Machine* Entry**  
 > **Prize Track:** Best Use of Arduino
@@ -16,17 +16,19 @@ cover_image: https://raw.githubusercontent.com/Orlando712/Un-scarey-Ghost-/main/
 
 ## What I Built
 
-**Boo, Please!** is an interactive theatrical 2D game running on the new **Arduino UNO Q** microcomputer. The player steps into the role of a stage coach to an endearing, completely unsuccessful cloth ghost haunting an abandoned carnival ticket booth.
+Meet our ghost: an endearing, completely harmless spirit made of cloth and good intentions, haunting an abandoned moonlit carnival ticket booth. There's just one problem—**they don't know how to scare anyone.**
 
-When the ghost's very first customer—a wind-up tin bear named Barnaby—waddles past the booth, the ghost freezes and asks for your guidance: *"My first customer! Help me get the timing right?"*
+When their very first customer—a curious wind-up tin bear named Barnaby—waddles onto the fairgrounds, the ghost completely freezes and turns to you, the stage coach, pleading:  
+> *"My first customer! Help me get the timing right?"*
 
-Through natural conversational instructions, you coach the ghost's approach:
-1. **Entrance Strategy:** You type custom coaching (e.g., *"Hide behind the ticket booth, then jump out with a loud boo"*, or *"Wait for a moment, then whisper boo"*).
-2. **Audio Demonstration:** You demonstrate the vocal delivery using your microphone (classified via an on-board neural audio model) or synthesized carnival tones.
-3. **Concealment & Stagecraft:** The ghost physically floats across the moonlit scene, ducks completely behind the booth's weathered counter sill using an SVG geometry mask, or poses motionless on stage.
-4. **Player-Controlled Scare Timing:** As Barnaby winds along the path, you watch his footsteps and strike the **"BOO!"** action button at the critical moment.
+**Boo, Please!** is an interactive theatrical 2D game running entirely on the new **Arduino UNO Q** microcomputer. Instead of pressing canned action buttons, you coach the ghost using natural conversational English and live vocal demonstrations:
 
-If your timing is impeccable ($80\text{px} \le X \le 255\text{px}$), the ghost leaps out into the open booth window, Barnaby jumps in shock, his brass key spins furiously, and he drops a shimmering **Golden Ticket**! If you trigger too early or speak politely, Barnaby chuckles at the ghost's adorable attempt, allowing you to refine your coaching for the next round.
+1. **Conversational Stage Coaching:** You type advice in plain English (e.g., *"Hide behind the ticket booth, then jump out with a loud boo"*, or *"Wait for a moment, then whisper boo"*). An on-board language model plans the ghost's physical choreography in real time.
+2. **Vocal Demonstration:** You show the ghost how it's done by shouting or whispering into your microphone. An on-board acoustic neural network listens and rates your delivery.
+3. **Stagecraft & Full Concealment:** The ghost follows your staging, floating behind the ticket booth counter (with pixel-perfect SVG masking so not even a hem protrudes) or hesitating in the shadows.
+4. **Player-Controlled Scare Timing:** As Barnaby winds along the path, you watch his mechanical footsteps. When he hits the encounter zone, you slam the **"BOO!"** trigger!
+
+If your timing is impeccable ($80\text{px} \le X \le 255\text{px}$), the ghost leaps out into the window, Barnaby leaps into the air with spinning brass gears, and drops a shimmering **Golden Ticket**! If you jump out too early or speak too politely, Barnaby chuckles and keeps waddling, letting you refine your coaching for the next round.
 
 ---
 
@@ -143,3 +145,20 @@ Open innovation is what made this project possible within the strict constraints
   * Demonstrates the full potential of the UNO Q as an **autonomous edge AI microcomputer**, running both a quantized LLM and an audio CNN concurrently on-device.
   * Combines physical computing hardware, local network services, and a polished browser gaming experience.
   * Integrates robust fallback handling, real-time diagnostics monitoring, and responsive 2D canvas animation directly from the board's web server.
+
+---
+
+## Behind the Build & Community Discussion 💬
+
+### Why I Built This
+So much of AI today is trapped behind browser tabs, cloud subscriptions, and corporate chatbots. For this Hacktoberfest *Ghost in the Machine* challenge, I wanted to build something tactile and joyful: an interactive storybook world where edge AI brings an endearing, awkward character to life.
+
+Watching a tiny cloth ghost hesitate behind a weathered carnival booth, waiting for the player to demonstrate how to "boo" into a microphone, and having all of that planned by open-weight neural nets running directly on a Linux microcomputer in your hands—that's what makes physical computing exciting.
+
+### Let's Chat in the Comments!
+I'd love to hear your thoughts and get your feedback:
+- **What's the funniest or most creative coaching prompt you'd give our ghost?** *(e.g., have you tried testing dramatic pauses vs. sudden jump-scares?)*
+- **Have you experimented with quantized local LLMs (like Qwen 2.5 0.5B) or audio CNNs on edge microcomputers?** What kind of latency and thermal performance did you see?
+- **What other interactive toys or physical installations would you love to see powered by on-device edge AI?**
+
+Drop your questions and ideas in the comments below! I'll be hanging out to answer questions about the Arduino UNO Q setup, `llama.cpp` NEON compilation, or Phaser stagecraft. Happy Hacktoberfest! 🎃👻
