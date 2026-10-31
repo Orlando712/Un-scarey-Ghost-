@@ -33,10 +33,11 @@ If your timing is sharp (80px to 255px), the ghost leaps out, Barnaby jumps into
 
 ## Demo Video & Art
 
-> 🎥 **Watch the Demo Walkthrough (1m 32s):**  
-> **[Direct Video Stream on GitHub](https://github.com/Orlando712/Un-scarey-Ghost-/raw/main/docs/demo_gameplay.mp4)**
+{% embed https://www.youtube.com/watch?v=zfZ_eZEEk4o %}
 
-*(Captures the full loop: natural-language coaching, on-device Qwen 2.5 inference, microphone acoustic test, full concealment behind the counter, manual "BOO!" scare timing, Barnaby's startled jump, Golden Ticket drop, and live on-device diagnostics.)*
+*(Watch the full end-to-end loop: entering the moonlit courtyard, custom natural-language coaching with on-board Qwen 2.5 inference, ghost concealment behind the booth counter, manual "BOO!" scare timing at the sweet spot, Barnaby's shock reaction with the Golden Ticket payoff, and the live on-device diagnostics drawer showing sub-5-second edge telemetry.)*
+
+*Direct video link: [https://youtu.be/zfZ_eZEEk4o](https://youtu.be/zfZ_eZEEk4o) (or download [demo_gameplay.mp4 on GitHub](https://github.com/Orlando712/Un-scarey-Ghost-/raw/main/docs/demo_gameplay.mp4))*
 
 ### Gameplay Screenshots
 
