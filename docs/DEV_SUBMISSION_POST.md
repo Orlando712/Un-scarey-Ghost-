@@ -4,7 +4,7 @@ published: false
 description: "A 2D physical-computing game where you coach an unscary carnival ghost using on-device LLM planning and audio classification on Arduino UNO Q."
 tags: devchallenge, hf26challenge
 canonical_url: 
-cover_image: 
+cover_image: https://raw.githubusercontent.com/Orlando712/Un-scarey-Ghost-/main/docs/assets/scare_payoff_cover.png 
 ---
 
 # Boo, Please! — Coaching an Unscary Ghost with AI on Arduino UNO Q
@@ -39,12 +39,11 @@ If your timing is impeccable ($80\text{px} \le X \le 255\text{px}$), the ghost l
 
 ### Gameplay Screenshots
 
-* **Moonlit Carnival Ticket Booth (`/prototype`):**  
-  *Atmospheric 2D landscape with weathered wooden booth, moonlit Ferris wheel silhouette, and animated SVG characters.*
-* **Complete Hiding Concealment:**  
-  *Ghost masked behind the opaque counter sill with zero downward body protrusion.*
-* **The Golden Ticket Payoff:**  
-  *Barnaby shocked in mid-air with spinning key, dropping the Golden Ticket.*
+![The Golden Ticket Payoff](https://raw.githubusercontent.com/Orlando712/Un-scarey-Ghost-/main/docs/assets/scare_payoff_cover.png)  
+*Figure 1: The Golden Ticket Payoff — Barnaby shocked in mid-air with spinning key, dropping the Golden Ticket.*
+
+![Complete Hiding Concealment](https://raw.githubusercontent.com/Orlando712/Un-scarey-Ghost-/main/docs/assets/hidden_concealment.png)  
+*Figure 2: Complete Hiding Concealment — Ghost masked behind the opaque counter sill with zero downward body protrusion.*
 
 ---
 
